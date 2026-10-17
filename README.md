@@ -1,8 +1,8 @@
 # Seenla Audio
 
-**Audio tools for shaping dynamics, tone, and level.**
+**Audio tools for shaping dynamics, transients, and level.**
 
-Seenla Audio is the home of **Open Clipper**, **Open Compressor**, **Open EQ**, **Open Gate**, and **Open Limiter**: a collection of audio effects for macOS with visual feedback and detailed control over your sound.
+Seenla Audio is the home of **Open Clipper**, **Open Compressor**, **Open Gate**, and **Open Limiter**: a collection of audio effects for macOS with visual feedback and detailed control over your sound.
 
 This repository is the collection's documentation and release hub. It currently contains documentation only. Plugin source code and downloadable builds have not been published here.
 
@@ -12,7 +12,6 @@ This repository is the collection's documentation and release hub. It currently 
 | --- | --- | --- |
 | [Open Clipper](docs/plugins.md#open-clipper) | Shape transients and control peaks with clipping, oversampling, and adjustable protection. | 2.4.15 |
 | [Open Compressor](docs/plugins.md#open-compressor) | Shape dynamics with flexible detection, sidechain controls, and gain-reduction history. | 2.10.8 |
-| [Open EQ](docs/plugins.md#open-eq) | Shape tone with parametric, dynamic, and spectral equalization. | 2.1.1 |
 | [Open Gate](docs/plugins.md#open-gate) | Control spill, noise, and sustain with gating, expansion, and external sidechain routing. | 1.8.33 |
 | [Open Limiter](docs/plugins.md#open-limiter) | Control final levels with lookahead limiting, selectable styles, and loudness metering. | 7.3.36 |
 

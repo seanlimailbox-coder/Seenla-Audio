@@ -30,7 +30,7 @@ Attach packages to GitHub Releases rather than committing them to the documentat
 Use filenames that state what the asset contains. For example:
 
 - `Open-Collection-macOS-universal-YYYY-MM-DD.pkg`
-- `Open-EQ-macOS-universal-vX.Y.Z.zip`
+- `Open-Clipper-macOS-universal-vX.Y.Z.zip`
 - `SHA256SUMS.txt`
 
 These are naming examples, not currently available downloads. A filename is descriptive metadata; verify the bundle contents and architecture before publishing.

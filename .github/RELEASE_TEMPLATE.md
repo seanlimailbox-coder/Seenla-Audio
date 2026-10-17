@@ -8,7 +8,6 @@ Briefly describe the main changes and who this release is for. Replace every pla
 | --- | --- | --- | --- |
 | Open Clipper | VERSION | FORMATS | ARCHITECTURES |
 | Open Compressor | VERSION | FORMATS | ARCHITECTURES |
-| Open EQ | VERSION | FORMATS | ARCHITECTURES |
 | Open Gate | VERSION | FORMATS | ARCHITECTURES |
 | Open Limiter | VERSION | FORMATS | ARCHITECTURES |
 

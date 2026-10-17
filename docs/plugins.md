@@ -1,6 +1,6 @@
 # The Open collection
 
-Five macOS audio effects, each focused on a different part of shaping a mix. All retain their original **Open** product names.
+Four macOS audio effects for shaping dynamics, transients, and level. All retain their original **Open** product names.
 
 Feature descriptions below reflect development as of October 17, 2026. Refer to the notes accompanying a downloadable release for its exact capabilities.
 
@@ -23,16 +23,6 @@ Open Compressor combines threshold, ratio, knee, attack, hold, release, range, s
 Input/output history, detector traces, and gain-reduction metering make it easier to inspect the response. Auto Gain and Auto Release offer additional starting points for balancing and timing the result.
 
 **Development version:** 2.10.8. This development version is newer than the most recent local distribution ZIP, 2.10.6; any first GitHub download must be prepared from the intended version.
-
-## Open EQ
-
-**Shape tone from broad balance to dynamic detail.**
-
-Open EQ combines parametric filtering with dynamic and spectral processing. Editable graph nodes, a band list, and analyzer views support both direct visual adjustments and precise numerical editing.
-
-Processing options include minimum phase, oversampled minimum phase, analog-response targets, and linear phase. Sidechain dynamics, EQ Match, and spectrum capture extend it beyond static corrective EQ. Processing mode and spectral settings affect latency and CPU requirements.
-
-**Development version:** 2.1.1.
 
 ## Open Gate
 
@@ -60,7 +50,6 @@ Input/output history, gain reduction, and integrated, short-term, and momentary 
 | --- | --- |
 | Round off or reshape short peaks | Open Clipper |
 | Adjust the movement and envelope of a performance | Open Compressor |
-| Correct or reshape frequency balance | Open EQ |
 | Reduce spill or shorten sustain between events | Open Gate |
 | Manage final output peaks and monitor loudness | Open Limiter |
 
