@@ -1,19 +1,13 @@
-# Contributing
+# Feedback and contributions
 
-Feedback, reproducible bug reports, feature suggestions, and documentation corrections are welcome.
+## Report a problem
 
-This repository currently contains documentation only. Plugin source code and a software contribution workflow have not been published here.
-
-## Report a bug
-
-Search [existing issues](https://github.com/seanlimailbox-coder/Seenla-Audio/issues), then use the bug report template. Include the exact plugin version, your host environment, and a minimal set of reproduction steps. See [Support](SUPPORT.md) for the full list of useful details.
+Search [existing issues](https://github.com/seanlimailbox-coder/Seenla-Audio/issues), then use the bug report template. Describe what you expected, what happened, and how to reproduce it. See [Support](SUPPORT.md) for the details to include.
 
 ## Suggest a feature
 
-Describe the audio or workflow problem first, then explain the proposed behavior. Include a practical example and any workaround you currently use. Use one issue per distinct request so it can be discussed and tracked clearly.
+Describe what you want to achieve and how the feature would help your audio workflow. A practical example is useful.
 
-## Improve the documentation
+## Correct the documentation
 
-Open a pull request with a focused correction or addition. Explain what the reader will understand or be able to do after the change. Keep compatibility and feature claims tied to an identified plugin version or published release.
-
-Keep plugin binaries, source code, build output, local machine paths, private recordings, and credentials out of documentation pull requests. Downloadable packages belong in GitHub Releases when they are ready.
+Open an issue or a pull request with the correction. Include the page and the information you think should change.

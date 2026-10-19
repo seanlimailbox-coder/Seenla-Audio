@@ -1,56 +1,50 @@
-# The Open collection
-
-Four macOS audio effects for shaping dynamics, transients, and level. All retain their original **Open** product names.
-
-Feature descriptions below reflect development as of October 18, 2026. Refer to the notes accompanying a downloadable release for its exact capabilities.
+# The plugins
 
 ## Open Clipper
 
-**Shape transients. Control peaks.**
+**Shape transients and control peaks.**
 
-Open Clipper provides clipping and peak control with input drive, an adjustable threshold and knee, wet/dry mix, and output gain. Oversampling and protection options offer control over the balance between character, peak behavior, processing cost, and latency.
+Use Open Clipper to round off sharp peaks, add density, or change the character of drums and other transient sounds. Input drive, threshold, knee, mix, and output controls let you balance the amount of clipping against the original signal.
 
-The waveform and gain-reduction history help connect each adjustment to its effect on the signal. It is suited to transient shaping, adding density, and managing peaks before subsequent dynamics processing.
-
-**Beta 1 version:** 2.4.23. The frozen-history inspection badge follows the cursor with a centered, single-row readout.
+Oversampling and peak-protection options help manage output peaks. The waveform and gain-reduction display show how your settings affect the sound; Freeze lets you inspect a moment in the history.
 
 ## Open Compressor
 
-**Control dynamics with a clear view of the detector.**
+**Control dynamics and shape the envelope of a sound.**
 
-Open Compressor combines threshold, ratio, knee, attack, hold, release, range, stereo linking, and parallel mix controls. Peak/RMS detection, detector filtering, external sidechain routing, audition, and optional lookahead provide additional control over what drives the compression.
+Open Compressor offers threshold, ratio, knee, attack, hold, release, range, and parallel mix controls. Use it to even out a performance, add movement, or change the balance between a sound's attack and sustain.
 
-Input/output history, detector traces, and gain-reduction metering make it easier to inspect the response. Auto Gain and Auto Release offer additional starting points for balancing and timing the result.
+Peak and RMS detection respond differently to the incoming signal. Detector filters, external sidechain routing, and audition let you choose what triggers compression. Input/output history and gain-reduction metering help you judge the response.
 
-**Beta 1 version:** 2.10.15. Frozen inspection uses a moving card with centered input, output, gain-reduction, sidechain, and detector readings.
+Auto Gain and Auto Release provide additional options for level matching and release timing.
 
 ## Open Gate
 
-**Shape space, separation, and sustain.**
+**Reduce noise, spill, and unwanted sustain.**
 
-Open Gate provides gating and downward expansion with threshold, hysteresis, ratio, range, attack, hold, and release controls. Sidechain filters, external key routing, and detector audition help isolate the events that should open or close the gate.
+Use Open Gate to attenuate quiet passages or tighten the space between events. Threshold and hysteresis determine when the gate opens and closes; ratio, range, attack, hold, and release shape the transition.
 
-Lookahead and preopen controls support anticipatory operation. Flip mode reverses the level-dependent action for alternate dynamics treatments, while the history display and transfer overlay help show the result.
+Sidechain filters and external key routing help isolate the sounds that should trigger the gate. Lookahead and Preopen help preserve attacks. Flip mode reverses which side of the threshold is attenuated.
 
-**Beta 1 version:** 1.8.37. Frozen inspection uses the shared moving card, with centered readouts and Shift-drag range selection for Learn Noise.
+Freeze the history and Shift-drag a quiet passage to select noise for Learn Noise, which suggests settings for you to review.
 
 ## Open Limiter
 
-**Control final levels while watching peaks and loudness.**
+**Control output peaks and monitor loudness.**
 
-Open Limiter is a lookahead limiter with gain, ceiling, attack, release, and stereo-link controls. Nine limiting styles provide different responses. Optional oversampling and true-peak protection add further control over output peaks.
+Use Open Limiter at the end of a processing chain to set an output ceiling and control peaks. Gain, attack, release, stereo linking, and nine limiting styles offer different ways to balance loudness and transient response.
 
-Input/output history, gain reduction, and integrated, short-term, and momentary loudness views help assess the result. Style and quality settings can change the reported latency; consult the matching release notes for measured peak behavior and limitations.
+Oversampling and true-peak protection provide additional peak control. Input/output history, gain-reduction meters, and integrated, short-term, and momentary loudness readings help you assess the result.
 
-**Beta 1 version:** 7.3.48. Preset and category menus use readable spacing and smooth opening/closing fades. The ceiling range extends down to −18 dB.
+Lookahead and quality settings can add latency, which the plugin reports to your host.
 
 ## Choosing a starting point
 
 | Goal | Start with |
 | --- | --- |
-| Round off or reshape short peaks | Open Clipper |
-| Adjust the movement and envelope of a performance | Open Compressor |
+| Reshape short peaks or add density | Open Clipper |
+| Even out a performance or shape its envelope | Open Compressor |
 | Reduce spill or shorten sustain between events | Open Gate |
-| Manage final output peaks and monitor loudness | Open Limiter |
+| Manage final output peaks and loudness | Open Limiter |
 
-See [installation and compatibility](installation.md) for host formats and package selection.
+[Download the collection](releases.md) · [Installation guide](installation.md)
