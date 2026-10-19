@@ -1,45 +1,39 @@
 # Seenla Audio
 
-**Audio tools for shaping dynamics, transients, and level.**
+Audio tools for shaping dynamics, transients, and level.
 
-Seenla Audio is the home of **Open Clipper**, **Open Compressor**, **Open Gate**, and **Open Limiter**: a collection of audio effects for macOS with visual feedback and detailed control over your sound.
+## Open Dynamics — Beta 1 · October 18, 2026
 
-This repository is the collection's documentation and release hub. It currently contains documentation only. Plugin source code and downloadable builds have not been published here.
+**[Download the Beta 1 installer](https://github.com/seanlimailbox-coder/Seenla-Audio/releases/tag/beta-1-2026-10-18)**
 
-## The collection
+A single macOS installer for **Open Clipper**, **Open Compressor**, **Open Gate**, and **Open Limiter**. Select any plugins and choose **Audio Unit (AU)**, **VST3**, or both for each one.
 
-| Plugin | What it does | Development version¹ |
+| Plugin | Beta 1 version | Formats |
 | --- | --- | --- |
-| [Open Clipper](docs/plugins.md#open-clipper) | Shape transients and control peaks with clipping, oversampling, and adjustable protection. | 2.4.15 |
-| [Open Compressor](docs/plugins.md#open-compressor) | Shape dynamics with flexible detection, sidechain controls, and gain-reduction history. | 2.10.8 |
-| [Open Gate](docs/plugins.md#open-gate) | Control spill, noise, and sustain with gating, expansion, and external sidechain routing. | 1.8.33 |
-| [Open Limiter](docs/plugins.md#open-limiter) | Control final levels with lookahead limiting, selectable styles, and loudness metering. | 7.3.36 |
+| [Open Clipper](docs/plugins.md#open-clipper) | 2.4.23 Beta 1 | AU + VST3 |
+| [Open Compressor](docs/plugins.md#open-compressor) | 2.10.15 Beta 1 | AU + VST3 |
+| [Open Gate](docs/plugins.md#open-gate) | 1.8.37 Beta 1 | AU + VST3 |
+| [Open Limiter](docs/plugins.md#open-limiter) | 7.3.48 Beta 1 | AU + VST3 |
 
-¹ Development versions recorded on **October 17, 2026**. These identify the current development snapshot, not published GitHub downloads. Each plugin has its own version number.
+**Compatibility:** macOS 11 or later; universal Apple Silicon and Intel builds. The installer places plugins in the current account's `~/Library/Audio/Plug-Ins/` folders.
 
-## Downloads and compatibility
+**Beta status:** this is a prerelease. The installer is unsigned and is not notarized by Apple; the plugin bundles use ad-hoc signatures. Keep copies of your current plugins and important sessions before updating. Quit your DAW before installation.
 
-When builds are published, download them from [GitHub Releases](https://github.com/seanlimailbox-coder/Seenla-Audio/releases). Each release will identify its plugin versions, formats, processor support, minimum macOS version, and signing/notarization status.
+## Getting started
 
-The current project targets **VST3** and **Audio Units (AU)** on macOS. Availability is determined by the actual assets attached to each release. A development version listed above does not imply that every format or processor build is ready to download.
+1. Download the `.pkg` from the [Beta 1 release](https://github.com/seanlimailbox-coder/Seenla-Audio/releases/tag/beta-1-2026-10-18). Checksums and a version manifest are attached there too.
+2. Review the plugin and AU/VST3 checkboxes on the Installation Type page.
+3. Reopen your DAW and rescan its plugins if needed.
+
+Selected formats replace the existing copies in your user plugin folders. Unselected formats, presets, and session files are left in place.
 
 - [Meet the plugins](docs/plugins.md)
 - [Installation and compatibility](docs/installation.md)
-- [Release status and versioning](docs/releases.md)
+- [Release notes and versioning](docs/releases.md)
 - [Get help or report a problem](.github/SUPPORT.md)
 
-## Feedback and contributions
+## Feedback
 
-Use [Issues](https://github.com/seanlimailbox-coder/Seenla-Audio/issues) for reproducible bugs and feature requests. Use [Discussions](https://github.com/seanlimailbox-coder/Seenla-Audio/discussions) for usage questions, workflows, and general feedback.
+Use [Issues](https://github.com/seanlimailbox-coder/Seenla-Audio/issues) for reproducible bugs and feature requests, and [Discussions](https://github.com/seanlimailbox-coder/Seenla-Audio/discussions) for usage questions. Include the plugin's version, format, macOS version, processor, and DAW when reporting a problem.
 
-Documentation corrections are welcome. See [Contributing](.github/CONTRIBUTING.md) for the information that makes reports and suggestions useful.
-
-## Repository guide
-
-| Location | Contents |
-| --- | --- |
-| `docs/` | Plugin descriptions, installation instructions, and release guidance |
-| `.github/` | Support guidance, contribution notes, issue templates, and a release-note template |
-| GitHub Releases | Future downloadable packages, release notes, and checksums |
-
-Source availability and software licensing will be documented explicitly if source code or software packages are published. The current repository does not include plugin source code or a software license.
+This repository is the collection's documentation and release hub. Downloadable installers are attached to GitHub Releases; plugin source code is not included in this repository.

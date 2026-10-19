@@ -1,58 +1,56 @@
 # Installation and compatibility
 
-Download packages only when they appear on the [Releases page](https://github.com/seanlimailbox-coder/Seenla-Audio/releases). No downloadable builds are currently published in this repository.
+The current download is **[Open Dynamics — Beta 1 · October 18, 2026](https://github.com/seanlimailbox-coder/Seenla-Audio/releases/tag/beta-1-2026-10-18)**.
 
-## Choose the right package
+## Requirements
 
-Read the release notes before downloading. Check the plugin versions, minimum macOS version, processor support, plugin formats, and signing/notarization status.
+- macOS 11 or later.
+- Apple Silicon or Intel Mac. Every included AU and VST3 bundle is universal (`arm64` + `x86_64`).
+- A host supporting Audio Units or VST3 effects.
 
-| Package label | Processor support |
+The installer is unsigned and not notarized by Apple. The plugin bundles use local ad-hoc signatures. If macOS blocks installation or loading, note the exact message; see [Support](../.github/SUPPORT.md). These beta builds have not been tested in every host or workflow.
+
+## Install the beta
+
+1. Back up your existing plugins and important sessions, then quit your audio applications.
+2. Download `Open-Dynamics-Beta-1-macOS-universal-2026-10-18.pkg` from the release above and open it.
+3. On **Installation Type**, select the plugins you want. Expand each plugin to choose **Audio Unit (AU)**, **VST3**, or both. All eight components are initially selected.
+4. Complete installation, then reopen your audio applications and rescan if needed.
+
+AU is used by Logic Pro and other Audio Units hosts. Choose VST3 for VST3-compatible hosts, or both if you use both formats.
+
+## Where files go
+
+This installer works with the **current macOS account only**.
+
+| Format | Destination |
 | --- | --- |
-| `universal` | Apple silicon and Intel; the host loads the appropriate architecture |
-| `arm64` | Apple silicon, using a compatible native host |
-| `x86_64` | Intel; use on Apple silicon depends on the host and Rosetta |
+| AU | `~/Library/Audio/Plug-Ins/Components/` |
+| VST3 | `~/Library/Audio/Plug-Ins/VST3/` |
 
-Universal support must be confirmed for the actual release asset. It should not be inferred from the product name or version.
+A selected format replaces its existing copy in that user folder. Deselecting a format leaves any existing copy in place; it does not uninstall it. Presets and session files are preserved. Copies in the all-users `/Library/Audio/Plug-Ins/` folders are not changed.
 
-Choose **VST3** if your DAW supports VST3 effects. Choose **AU** for Logic Pro, GarageBand, or another Audio Units host. The format available in a release is shown by its attached assets.
+Beta 1 contains only the versions listed in its release notes. The format choices are not a historical-version selector.
 
-## If a macOS installer is provided
+## Verify the download
 
-1. Open the downloaded `.pkg` file.
-2. Follow its instructions and review the selected plugins and destination.
-3. Restart your DAW and run its plugin rescan if necessary.
+Download `SHA256SUMS.txt` alongside the installer. In Terminal, change to that download folder and run:
 
-A collection installer may contain plugins with different version numbers. Refer to the release's version table for the exact contents. An installer is not currently published here.
+```sh
+shasum -a 256 -c SHA256SUMS.txt --ignore-missing
+```
 
-## Install VST3 manually
+The installer should report `OK`. The release also includes a text readme and a version manifest.
 
-1. Extract the ZIP and locate the `.vst3` bundle.
-2. In Finder, choose **Go → Go to Folder** and enter `~/Library/Audio/Plug-Ins/`.
-3. Create a `VST3` folder there if necessary, then copy the complete `.vst3` bundle into it.
-4. Restart your DAW and rescan VST3 plugins if necessary.
+## Existing sessions and removal
 
-The per-user destination is `~/Library/Audio/Plug-Ins/VST3/`. A package designed for all users may instead install to `/Library/Audio/Plug-Ins/VST3/` and require administrator approval.
+Plugin names and IDs are preserved so existing sessions can find updated instances. Open a copy of an important session first and check its settings and playback.
 
-Keep the `.vst3` bundle intact. Do not copy only the executable from inside it.
-
-## Install Audio Units manually
-
-If the release supplies an AU build, copy its complete `.component` bundle to `~/Library/Audio/Plug-Ins/Components/`. Create the `Components` folder if needed, restart your host, and use its Audio Units scan or validation controls if the plugin does not appear.
-
-An all-users installer may use `/Library/Audio/Plug-Ins/Components/` instead.
-
-## Update or remove a plugin
-
-Quit your DAW before replacing or removing plugin bundles. Back up important sessions and note the previous version before updating. Read release notes for changes that can affect saved sessions, automation, processing, or latency.
-
-To remove a manually installed plugin, remove its `.vst3` or `.component` bundle from the installation folder and rescan your DAW. If a future installer supplies additional removal instructions, follow those as well.
+To remove a format, quit your DAW and remove that plugin's complete `.component` or `.vst3` bundle from the relevant user folder above. Reopen and rescan your host. Keep a previous installer or plugin copy if you want to roll back.
 
 ## If a plugin does not appear
 
-- Confirm that the package supports your macOS version and processor.
-- Check that your DAW supports the installed format and is running in a compatible architecture.
-- Check both per-user and all-users folders for duplicate versions.
-- Restart the DAW and use its plugin manager to rescan or inspect validation errors.
-- If macOS blocks loading, record the exact message and check the release's signing/notarization notes.
-
-See [Support](../.github/SUPPORT.md) for the details to include when asking for help.
+- Check that your host supports the selected format and macOS version.
+- Check both user and all-users plugin folders for duplicate copies.
+- Restart your host and inspect its plugin manager or validation errors.
+- Include the exact error, plugin version, architecture, format, and host version in a [support report](../.github/SUPPORT.md).

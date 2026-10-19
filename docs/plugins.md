@@ -2,7 +2,7 @@
 
 Four macOS audio effects for shaping dynamics, transients, and level. All retain their original **Open** product names.
 
-Feature descriptions below reflect development as of October 17, 2026. Refer to the notes accompanying a downloadable release for its exact capabilities.
+Feature descriptions below reflect development as of October 18, 2026. Refer to the notes accompanying a downloadable release for its exact capabilities.
 
 ## Open Clipper
 
@@ -12,7 +12,7 @@ Open Clipper provides clipping and peak control with input drive, an adjustable 
 
 The waveform and gain-reduction history help connect each adjustment to its effect on the signal. It is suited to transient shaping, adding density, and managing peaks before subsequent dynamics processing.
 
-**Development version:** 2.4.15.
+**Beta 1 version:** 2.4.23. The frozen-history inspection badge follows the cursor with a centered, single-row readout.
 
 ## Open Compressor
 
@@ -22,7 +22,7 @@ Open Compressor combines threshold, ratio, knee, attack, hold, release, range, s
 
 Input/output history, detector traces, and gain-reduction metering make it easier to inspect the response. Auto Gain and Auto Release offer additional starting points for balancing and timing the result.
 
-**Development version:** 2.10.8. This development version is newer than the most recent local distribution ZIP, 2.10.6; any first GitHub download must be prepared from the intended version.
+**Beta 1 version:** 2.10.15. Frozen inspection uses a moving card with centered input, output, gain-reduction, sidechain, and detector readings.
 
 ## Open Gate
 
@@ -32,17 +32,17 @@ Open Gate provides gating and downward expansion with threshold, hysteresis, rat
 
 Lookahead and preopen controls support anticipatory operation. Flip mode reverses the level-dependent action for alternate dynamics treatments, while the history display and transfer overlay help show the result.
 
-**Development version:** 1.8.33.
+**Beta 1 version:** 1.8.37. Frozen inspection uses the shared moving card, with centered readouts and Shift-drag range selection for Learn Noise.
 
 ## Open Limiter
 
 **Control final levels while watching peaks and loudness.**
 
-Open Limiter is a lookahead limiter with gain, ceiling, attack, release, and stereo-link controls. Transparent, Punch, Dynamic, and Aggressive styles provide different responses. Optional oversampling and true-peak protection add further control over output peaks.
+Open Limiter is a lookahead limiter with gain, ceiling, attack, release, and stereo-link controls. Nine limiting styles provide different responses. Optional oversampling and true-peak protection add further control over output peaks.
 
 Input/output history, gain reduction, and integrated, short-term, and momentary loudness views help assess the result. Style and quality settings can change the reported latency; consult the matching release notes for measured peak behavior and limitations.
 
-**Development version:** 7.3.36.
+**Beta 1 version:** 7.3.48. Preset and category menus use readable spacing and smooth opening/closing fades. The ceiling range extends down to −18 dB.
 
 ## Choosing a starting point
 
