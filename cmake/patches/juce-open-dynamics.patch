@@ -1,0 +1,107 @@
+--- a/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp
++++ b/modules/juce_audio_plugin_client/juce_audio_plugin_client_VST3.cpp
+@@ -34,6 +34,11 @@
+ 
+ #include <juce_core/system/juce_TargetPlatform.h>
+ #include <juce_core/system/juce_CompilerWarnings.h>
++
++#if OPEN_CLIPPER_SAMPLE_ACCURATE
++ #include <ParameterTimeline.h>
++ namespace OpenPluginTimeline = OpenClipperTimeline;
++#endif
+ 
+ //==============================================================================
+ #if JucePlugin_Build_VST3
+@@ -3690,8 +3695,15 @@
+ 
+         midiBuffer.clear();
+ 
++       #if ! OPEN_CLIPPER_SAMPLE_ACCURATE
+         if (data.inputParameterChanges != nullptr)
+             processParameterChanges (*data.inputParameterChanges);
++       #else
++        // Audio callbacks apply every automation point at its sample offset.
++        // Parameter-only flushes still use JUCE's normal last-value handling.
++        if (data.inputParameterChanges != nullptr && data.numSamples == 0)
++            processParameterChanges (*data.inputParameterChanges);
++       #endif
+ 
+        #if JucePlugin_WantsMidiInput
+         if (isMidiInputBusEnabled && data.inputEvents != nullptr)
+@@ -3828,12 +3840,37 @@
+             }
+             else
+             {
++               #if OPEN_CLIPPER_SAMPLE_ACCURATE
++                // Opt-in timestamped automation for Open Clipper.
++                // Other Open plug-ins retain the upstream wrapper behavior.
++                auto* changes = data.inputParameterChanges;
++                OpenPluginTimeline::process (buffer.getNumSamples(), changes != nullptr ? changes->getParameterCount() : 0,
++                    [changes] (int q) { auto* queue = changes->getParameterData (q); return queue != nullptr ? queue->getPointCount() : 0; },
++                    [changes] (int q, int point, int& offset, double& value)
++                    {
++                        Steinberg::int32 at = 0;
++                        auto* queue = changes->getParameterData (q);
++                        const bool valid = queue != nullptr && queue->getPoint (point, at, value) == kResultTrue;
++                        offset = (int) at; return valid;
++                    },
++                    [this, changes] (int q, double value)
++                    {
++                        if (auto* param = comPluginInstance->getParamForVSTParamID (changes->getParameterData (q)->getParameterId()))
++                            setValueAndNotifyIfChanged (*param, (float) value);
++                    },
++                    [this, &buffer] (int start, int count)
++                    {
++                        AudioBuffer<FloatType> slice (buffer.getArrayOfWritePointers(), buffer.getNumChannels(), start, count);
++                        pluginInstance->processBlock (slice, midiBuffer);
++                    });
++               #else
+                 // processBlockBypassed should only ever be called if the AudioProcessor doesn't
+                 // return a valid parameter from getBypassParameter
+                 if (pluginInstance->getBypassParameter() == nullptr && comPluginInstance->getBypassParameter()->getValue() >= 0.5f)
+                     pluginInstance->processBlockBypassed (buffer, midiBuffer);
+                 else
+                     pluginInstance->processBlock (buffer, midiBuffer);
++               #endif
+             }
+ 
+            #if JUCE_DEBUG && (! JucePlugin_ProducesMidiOutput)
+--- a/modules/juce_gui_basics/menus/juce_PopupMenu.cpp
++++ b/modules/juce_gui_basics/menus/juce_PopupMenu.cpp
+@@ -452,8 +452,20 @@
+         getMouseState (Desktop::getInstance().getMainMouseSource()); // forces creation of a mouse source watcher for the main mouse
+     }
+ 
++    // Optional app-owned visual dismissal. JUCE retains modal/input handling.
++    void prepareForDismissal()
++    {
++        if (std::exchange (seenlaDismissalPrepared, true))
++            return;
++
++        const auto callback = getProperties()["seenla.popupDismiss"];
++        if (callback.isMethod())
++            callback.getNativeFunction() (var::NativeFunctionArgs (var(), nullptr, 0));
++    }
++
+     ~MenuWindow() override
+     {
++        prepareForDismissal();
+         getActiveWindows().removeFirstMatchingValue (this);
+         Desktop::getInstance().removeGlobalMouseListener (this);
+         activeSubMenu.reset();
+@@ -527,6 +539,7 @@
+         {
+             WeakReference<Component> deletionChecker (this);
+ 
++            prepareForDismissal();
+             activeSubMenu.reset();
+             currentChild = nullptr;
+ 
+@@ -1366,6 +1379,7 @@
+     OwnedArray<MouseSourceState> mouseSourceStates;
+     float scaleFactor;
+     bool exitingModalState = false;
++    bool seenlaDismissalPrepared = false;
+ 
+ private:
+     void handleMouseEvent (const MouseEvent& e)

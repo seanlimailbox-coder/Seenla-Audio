@@ -32,3 +32,7 @@ The installer is unsigned and not notarized by Apple, so macOS may block install
 - [Get help or report a problem](.github/SUPPORT.md)
 
 This is a beta release. Try it in your usual workflow before using it in an important project.
+
+## Source code
+
+The source for all four plugins is in this repository. See [Building from source](docs/building.md) for requirements and build instructions.

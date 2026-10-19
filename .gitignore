@@ -1,0 +1,15 @@
+# Generated builds and release packages
+/build*/
+/dist/
+/.cache/
+*.pkg
+*.vst3/
+*.component/
+*.dSYM/
+
+# Local editor and macOS files
+.DS_Store
+.AppleDouble
+.vscode/
+.idea/
+*.user
